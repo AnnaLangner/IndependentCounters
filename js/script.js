@@ -18,11 +18,11 @@ var Counter = React.createClass({
 	},
 	
 	render: function () {
-		return React.createElement('div', {},
+		return React.createElement('div', {clasName: 'app'},
 			React.createElement('span', {}, 'Counter' + this.state.counter)
 		);
 	}
 });
 
 var element = React.createElement(Counter);
-ReactDOM.render(elemen, document.getElementById('app'));
+ReactDOM.render(element, document.getElementById('app'));
