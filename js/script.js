@@ -1,9 +1,25 @@
 var Counter = React.createClass({
-	getTnstalState: function () {
+	getInitialState: function () {
 		return {
 			counter: 0
 		};
 	},
+
+	componentDidMount: function() {
+		console.log('The Counter component ask the browser to configure the initial value')
+  	},
+
+  	componentDidUpdate: function() {
+  		console.log('Setting a condition that compares the current prop with previous props')
+  	},
+
+  	shouldComponentUpdate: function(){
+  		console.log('In this method, we will optimize the counter performance')
+  	},
+
+  	componentWillUnmount: function() {
+  		console.log('We call this method every time when we want to reset the counter')
+  	},
 
 	increment: function() {
 		this.setState({
@@ -18,8 +34,11 @@ var Counter = React.createClass({
 	},
 	
 	render: function () {
-		return React.createElement('div', {clasName: 'app'},
-			React.createElement('span', {}, 'Counter' + this.state.counter)
+		return React.createElement('h1', {className: 'title'}, 'Counter',
+			React.createElement('div', {className: 'app'}, this.state.counter,
+				React.createElement('button', {onClick: this.increment, className: 'plusOne'}, 'Add one point' ),
+				React.createElement('button', {onClick: this.decrement, className: 'minusOne'}, 'Subtract one point' )
+			)
 		);
 	}
 });
