@@ -14,7 +14,8 @@ var Counter = React.createClass({
   	},
 
   	shouldComponentUpdate: function(){
-  		console.log('In this method, we will optimize the counter performance')
+  	 	console.log('In this method, we will optimize the counter performance');
+  	 	return true;
   	},
 
   	componentWillUnmount: function() {
